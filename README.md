@@ -30,7 +30,7 @@ performs redirects to the site where YOURLS is served from (e.g.
 
 ### The easy way: git
 
-Move to `user/plugins` and clone the git repository of this plugin:
+Change directory to `user/plugins` and clone the `git` repository of this plugin:
 
     cd user/plugins
     git clone https://github.com/christian-krieg/yourls-plugin-baseurl-rewrite
