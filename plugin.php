@@ -6,7 +6,7 @@ Description: Rewrite short URLs such that they point to alternative (base) URLs
              (e.g., https://acme.com/r), different from the base domain of the
              Yourls installation. This can be helpful if you want to server
              Yourls from a sub-domain (e.g., https://link.acme.com), 
-Version: 1.0
+Version: 1.0.0
 Author: Christian Krieg <christian@drkrieg.at>
 */
 
