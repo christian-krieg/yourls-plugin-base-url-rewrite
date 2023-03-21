@@ -1,4 +1,4 @@
-# [Rewrite YOURLS_SITE in short links to point to a different domain] [![Listed in Awesome YOURLS!](https://img.shields.io/badge/Awesome-YOURLS-C5A3BE)](https://github.com/YOURLS/awesome-yourls/)
+# Rewrite BaseURL [![Listed in Awesome YOURLS!](https://img.shields.io/badge/Awesome-YOURLS-C5A3BE)](https://github.com/YOURLS/awesome-yourls/)
 
 <!-- Once you have committed code, get your plugin listed in Awesome YOURLS ! See https://github.com/YOURLS/awesome-yourls -->
 
@@ -32,7 +32,7 @@ https://link.acme.com).
 Move to `user/plugins` and clone the git repository of this plugin:
 
     cd user/plugins
-    git clone
+    git clone https://github.com/christian-krieg/yourls-plugin-rewrite-shortlink-base-url
 
 ### The hard way: manual copy
 
