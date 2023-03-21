@@ -43,8 +43,8 @@ instead of
 
 It is assumed that the system behind ``https://acme.com/r`` performs (e.g.,
 wildcard) redirects from ``https://acme.com/r/(.*)`` to
-``https://link.acme.com/$1`` which are then further redirected to the respective
-target URLs.
+``https://link.acme.com/$1`` which are then further redirected by YOURLS to the
+respective target URLs.
 
 
 ## Installation
