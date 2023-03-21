@@ -8,27 +8,21 @@ Tested with [YOURLS](https://yourls.org), version `1.9.2`.
 
 ### General
 
-The only configuration option for the "BaseURL Rewrite" plugin is a text string
-that specifies the base URL of generated shortlinks.
-
 This plugin rewrites short URLs by replacing the original base URL (as specified
-by ``YOURLS_SITE`` in `config.php`) with the base URL given in the configuration
-option. If the base URL configuration option is empty, the original short URL is
-returned.
+by ``YOURLS_SITE`` in `config.php`) with the base URL given in the plugin's
+configuration option as specified in the settings. If the base URL configuration
+option is empty, the original short URL stays untouched, and is returned.
 
-This base URL can be different from the domain from which YOURLS is served.
-Rewrite short links such that they point to another (base) domain (e.g.,
-``https://acme.com/r``), which can be helpful if you want to serve YOURLS from a
-sub-domain (e.g., ``https://link.acme.com``), but generate short links for a
-sub-directory of the domain for your main web presence (e.g.,
-``https://acme.com/r``).
+This base URL configuration option can be different from the domain from which
+YOURLS is served (i.e., ``YOURLS_SITE``).  This plugin rewrites short URLs such
+that they point to another (base) URL (e.g., ``https://acme.com/r``), which
+can be helpful if you want to serve YOURLS from a different sub-domain (e.g.,
+``https://link.acme.com``), but generate short links for a sub-directory of the
+domain for your main web presence (e.g., ``https://acme.com/r``).
 
-If the shortlink base URL is not defined, the short link base URL is the same as
-``YOURLS_SITE`` (as defined in `config.php`).
-
-:bulb: NOTE: You must take care that the other end (e.g., ``https://acme.com/r``)
-performs redirects to the site where YOURLS is served from (e.g.
-``https://link.acme.com``).
+:bulb: **NOTE:** You must take care that the other end (e.g.,
+``https://acme.com/r``) performs redirects back to the site where YOURLS is
+served from (e.g. ``https://link.acme.com``).
 
 ![The admin interface of the plugin](config.png)
 
