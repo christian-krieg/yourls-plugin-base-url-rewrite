@@ -56,7 +56,8 @@ respective target URLs.
       cd user/plugins
       git clone https://github.com/christian-krieg/yourls-plugin-baseurl-rewrite
 
-1. Go to the Plugins administration page (e.g. `http://sho.rt/admin/plugins.php`) and activate the plugin.
+1. Go to the Plugins administration page (e.g.
+   http://link.acme.com/admin/plugins.php`) and activate the plugin.
 
 1. Have fun!
 
@@ -68,7 +69,7 @@ respective target URLs.
        cd user/plugins
 
 1. Download the latest stable release of the plugin from
-   [](https://github.com/christian-krieg/yourls-plugin-base-url-rewrite/releases),
+   https://github.com/christian-krieg/yourls-plugin-base-url-rewrite/releases,
    e.g.:
 
        wget -c https://github.com/christian-krieg/yourls-plugin-base-url-rewrite/archive/refs/tags/1.0.0.tar.gz
@@ -83,7 +84,8 @@ respective target URLs.
 
        ln -s yourls-plugin-baseurl-rewrite-1.0.0 yourls-plugin-baseurl-rewrite
 
-1. Go to the Plugins administration page (e.g. `http://sho.rt/admin/plugins.php`) and activate the plugin.
+1. Go to the Plugins administration page (e.g.
+   http://link.acme.com/admin/plugins.php`) and activate the plugin.
 
 1. Have fun!
 
