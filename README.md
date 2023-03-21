@@ -51,17 +51,41 @@ respective target URLs.
 
 ### The easy way: git
 
-Change directory to `user/plugins` and clone the `git` repository of this plugin:
+1. Change directory to `user/plugins` and clone the `git` repository of this plugin:
 
-    cd user/plugins
-    git clone https://github.com/christian-krieg/yourls-plugin-baseurl-rewrite
+      cd user/plugins
+      git clone https://github.com/christian-krieg/yourls-plugin-baseurl-rewrite
+
+1. Go to the Plugins administration page (e.g. `http://sho.rt/admin/plugins.php`) and activate the plugin.
+
+1. Have fun!
+
 
 ### The hard way: manual copy
 
-1. In `user/plugins`, create a new folder named `yourls-plugin-baseurl_rewrite`.
-2. Drop these files in that directory.
-3. Go to the Plugins administration page (e.g. `http://sho.rt/admin/plugins.php`) and activate the plugin.
-4. Have fun!
+1. Change to directory ``user/plugins``:
+
+       cd user/plugins
+
+1. Download the latest stable release of the plugin from
+   [](https://github.com/christian-krieg/yourls-plugin-base-url-rewrite/releases),
+   e.g.:
+
+       wget -c https://github.com/christian-krieg/yourls-plugin-base-url-rewrite/archive/refs/tags/1.0.0.tar.gz
+
+1. Unzip the archive to ``user/plugins``, e.g.:
+
+       tar -xavvf 1.0.0.tar.gz
+
+1. Create a symlink to the extracted folder, and name it
+`` yourls-plugin-baseurl-rewrite`` (basically we remove the version string),
+   e.g.:
+
+       ln -s yourls-plugin-baseurl-rewrite-1.0.0 yourls-plugin-baseurl-rewrite
+
+1. Go to the Plugins administration page (e.g. `http://sho.rt/admin/plugins.php`) and activate the plugin.
+
+1. Have fun!
 
 ## License
 
