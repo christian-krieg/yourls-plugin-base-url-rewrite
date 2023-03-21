@@ -85,7 +85,7 @@ respective target URLs.
        ln -s yourls-plugin-baseurl-rewrite-1.0.0 yourls-plugin-baseurl-rewrite
 
 1. Go to the Plugins administration page (e.g.
-   http://link.acme.com/admin/plugins.php`) and activate the plugin.
+   http://link.acme.com/admin/plugins.php) and activate the plugin.
 
 1. Have fun!
 
