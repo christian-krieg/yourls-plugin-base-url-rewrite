@@ -36,8 +36,8 @@ if( !defined( 'YOURLS_ABSPATH' ) ) die();
 //     https://link.acme.com/Ac3fG
 //
 // It is assumed that the system behind ``https://acme.com/r`` performs (e.g.,
-// wildcard) redirects from ``https://acme.com/r/.*`` to
-// ``https://link.acme.com/.*`` which are then further redirected to the target
+// wildcard) redirects from ``https://acme.com/r/(.*)`` to
+// ``https://link.acme.com/$1`` which are then further redirected to the target
 // URL.
 //
 yourls_add_filter( 'yourls_link', 'ck_base_url_rewrite' );
@@ -55,6 +55,7 @@ function ck_base_url_rewrite ($link) {
     return $rewritten;
 }
 
+
 // Add a configuration page to the admin panel
 yourls_add_action( 'plugins_loaded', 'ck_base_url_rewrite_init' );
 function ck_base_url_rewrite_init() {
@@ -64,6 +65,7 @@ function ck_base_url_rewrite_init() {
         'ck_base_url_rewrite_display_page',
     );
 }
+
 
 // The function that will draw the admin page
 function ck_base_url_rewrite_display_page () {
@@ -92,6 +94,7 @@ function ck_base_url_rewrite_display_page () {
         </main>
 HTML;
 }
+
 
 // The function that updates the configuration option
 function ck_base_url_rewrite_settings_update() {
