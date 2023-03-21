@@ -2,7 +2,7 @@
 /*
 Plugin Name: BaseURL Rewrite
 Plugin URI: https://github.com/christian-krieg/yourls-plugin-rewrite-yourls-site
-Description: Rewrite short links such that they point to another (base) domain
+Description: Rewrite short URLs such that they point to alternative (base) URLs
              (e.g., https://acme.com/r), different from the base domain of the
              Yourls installation. This can be helpful if you want to server
              Yourls from a sub-domain (e.g., https://link.acme.com), 
