@@ -4,9 +4,9 @@ Plugin Name: BaseURL Rewrite
 Plugin URI: https://github.com/christian-krieg/yourls-plugin-rewrite-yourls-site
 Description: Rewrite short URLs such that they point to alternative (base) URLs
              (e.g., https://acme.com/r), different from the base domain of the
-             Yourls installation. This can be helpful if you want to server
+             Yourls installation. This can be helpful if you want to serve
              Yourls from a sub-domain (e.g., https://link.acme.com), 
-Version: 1.0.0
+Version: 1.0.2
 Author: Christian Krieg <christian@drkrieg.at>
 */
 
@@ -42,7 +42,14 @@ if( !defined( 'YOURLS_ABSPATH' ) ) die();
 //
 yourls_add_filter( 'yourls_link', 'ck_base_url_rewrite' );
 function ck_base_url_rewrite ($link) {
-    $base_url = yourls_get_option( 'ck_base_url', '');
+    $default_base_url = yourls_get_option( 'ck_default_base_url', '');
+    $base_url_query_parameter = yourls_get_option( 'ck_base_url_query_parameter', '');
+
+    $base_url = (
+        isset($_REQUEST[$base_url_query_parameter])
+        ? $_REQUEST[$base_url_query_parameter]
+        : $default_base_url
+    );
 
     if ( empty($base_url) )
         return $link;
@@ -70,14 +77,17 @@ function ck_base_url_rewrite_init() {
 // The function that will draw the admin page
 function ck_base_url_rewrite_display_page () {
     // Check if form was submitted
-    if( isset( $_POST['base_url'] ) ) {
+    if( isset( $_POST['default_base_url'] ) or
+        isset( $_POST['base_url_query_parameter'] )
+    ) {
         // If so, verify nonce
         yourls_verify_nonce( 'base_url_settings' );
         // and process submission if nonce is valid
         ck_base_url_rewrite_settings_update();
     }
 
-    $base_url = yourls_get_option('ck_base_url', '');
+    $default_base_url = yourls_get_option('ck_default_base_url', '');
+    $base_url_query_parameter = yourls_get_option('ck_base_url_query_parameter', '');
     $nonce = yourls_create_nonce('base_url_settings');
 
     echo <<<HTML
@@ -86,8 +96,12 @@ function ck_base_url_rewrite_display_page () {
             <form method="post">
             <input type="hidden" name="nonce" value="$nonce" />
             <p>
-                <label>Shortlink Base URL:</label>
-                <input type="text" name="base_url" value="$base_url" />
+                <label>Shortlink Default Base URL:</label>
+                <input type="text" name="default_base_url" value="$default_base_url" />
+            </p>
+            <p>
+                <label>Query parameter (Leave blank to disable):</label>
+                <input type="text" name="base_url_query_parameter" value="$base_url_query_parameter" />
             </p>
             <p><input type="submit" value="Save" class="button" /></p>
             </form>
@@ -98,7 +112,9 @@ HTML;
 
 // The function that updates the configuration option
 function ck_base_url_rewrite_settings_update() {
-    $base_url = $_POST['base_url'];
-    yourls_update_option( 'ck_base_url', $base_url );
+    $default_base_url = $_POST['default_base_url'];
+    $base_url_query_parameter = $_POST['base_url_query_parameter'];
+    yourls_update_option( 'ck_default_base_url', $default_base_url );
+    yourls_update_option( 'ck_base_url_query_parameter', $base_url_query_parameter);
 }
 
